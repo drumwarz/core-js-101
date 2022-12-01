@@ -459,9 +459,7 @@ function sortCitiesArray(arr) {
  *           [0,0,0,0,1]]
  */
 function getIdentityMatrix(n) {
-  return [...Array(n)].map((el, i, arr) =>
-    arr.map((el2, i2) => (i === i2 ? 1 : 0))
-  );
+  return [...Array(n)].map((el, i, arr) => arr.map((el2, i2) => (i === i2 ? 1 : 0)));
 }
 
 /**
@@ -528,8 +526,7 @@ function distinct(arr) {
  */
 function group(array, keySelector, valueSelector) {
   return array.reduce((prev, item) => {
-    if (prev.has(keySelector(item)))
-      prev.get(keySelector(item)).push(valueSelector(item));
+    if (prev.has(keySelector(item))) prev.get(keySelector(item)).push(valueSelector(item));
     else prev.set(keySelector(item), [valueSelector(item)]);
     return prev;
   }, new Map());
