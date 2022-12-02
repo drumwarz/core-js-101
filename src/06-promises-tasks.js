@@ -27,7 +27,7 @@
  *      .catch((error) => console.log(error.message)) // 'Error: Wrong parameter is passed!
  *                                                    //  Ask her again.';
  */
-function willYouMarryMe(isPositiveAnswer) {
+async function willYouMarryMe(isPositiveAnswer) {
   if (typeof isPositiveAnswer === 'boolean') {
     return isPositiveAnswer
       ? 'Hooray!!! She said "Yes"!'
@@ -97,9 +97,7 @@ function getFastestPromise(array) {
  */
 async function chainPromises(array, action) {
   const promises = [];
-  await array.forEach((item) =>
-    item.then((dat) => promises.push(dat)).catch((e) => new Error(e))
-  );
+  await array.forEach((item) => item.then((dat) => promises.push(dat)).catch((e) => new Error(e)));
   return promises.reduce(action);
 }
 
